@@ -1,14 +1,26 @@
-import { Layout, Menu } from 'antd';
+import { Menu, Row, Col } from 'antd';
 
-const items1 = ['1', '2', '3'].map((key) => ({
+const items1 = ['个人中心', '帮助中心'].map((key) => ({
   key,
-  label: `nav ${key}`,
+  label: `${key}`,
 }));
 
-export default (props:any) => {
+export default () => {
   return (
     <>
-      <div className="logo" />
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
+      <Row>
+        <Col span={16} className="header-title">
+          万云科技
+        </Col>
+        <Col span={8}>
+          <Menu
+            className='float-right'
+            theme="dark"
+            mode="horizontal"
+            defaultSelectedKeys={['2']}
+            items={items1}
+          />
+        </Col>
+      </Row>
     </>
 )};

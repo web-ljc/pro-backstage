@@ -1,8 +1,8 @@
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Breadcrumb } from 'antd';
 
-export default (props:any) => {
+export default () => {
   return (
-    <Breadcrumb style={{ margin: '16px 0', }}>
+    <Breadcrumb style={{ margin: '16px 0' }}>
       <Breadcrumb.Item>Home</Breadcrumb.Item>
       <Breadcrumb.Item>List</Breadcrumb.Item>
       <Breadcrumb.Item>App</Breadcrumb.Item>

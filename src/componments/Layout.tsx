@@ -10,21 +10,14 @@ export default () => {
   return (
     <Layout>
       <BrowserRouter>
-        <Header className="header">
+        <Header>
           <TopHeader />
         </Header>
         <Layout>
           <LeftBar/>
-          <Layout style={{padding: '0 24px 24px',}}>
+          <Layout className='content'>
             <Breadcrumb />
-            <Content
-              className="site-layout-background"
-              style={{
-                padding: 24,
-                margin: 0,
-                minHeight: 280,
-              }}
-            >
+            <Content className='con-inner'>
               <View />
             </Content>
           </Layout>
