@@ -1,11 +1,9 @@
-import React from 'react';
-import Login from './pages/login/Login'
+import Layout from './componments/Layout';
 
 function App() {
-  console.info(15)
   return (
     <div className="App">
-      <Login />
+      <Layout />
     </div>
   );
 }
