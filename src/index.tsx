@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'antd/dist/antd.css';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
 import '@css/common.less';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -24,7 +26,9 @@ function render(props) {
   );
   root.render(
     <React.StrictMode>
-      <App />
+      <ConfigProvider locale={zhCN}>
+        <App />
+      </ConfigProvider>
     </React.StrictMode>
   );
   console.info(13)

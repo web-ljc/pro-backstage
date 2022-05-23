@@ -1,8 +1,6 @@
 import { lazy, ReactNode } from 'react'
 import {
   HomeOutlined,
-  UserOutlined,
-  TeamOutlined,
   UsergroupAddOutlined,
   ApartmentOutlined,
   FileTextOutlined,
@@ -10,8 +8,11 @@ import {
 } from '@ant-design/icons';
 
 const Login = lazy(() =>  import('../pages/login'))
-const Index = lazy(() =>  import('../pages/index/main'))
+const Index = lazy(() =>  import('../pages/index'))
 const UserList = lazy(() => import('../pages/user'))
+const GoodsList = lazy(() => import('../pages/goods'))
+const SourceList = lazy(() => import('../pages/goodsource'))
+const PayList = lazy(() => import('../pages/pay'))
 const Page404 = lazy(() => import('../pages/page404'))
 
 export interface IRouter {
@@ -42,7 +43,7 @@ export const router: IRouter[] = [
         path: '/list',
         title: '商品列表',
         key: 'goodsList',
-        component: <UserList />,
+        component: <GoodsList />,
       }
     ]
   },
@@ -56,21 +57,21 @@ export const router: IRouter[] = [
         path: '/list',
         title: '货源中心',
         key: 'sourceList',
-        component: <UserList />,
+        component: <SourceList />,
       }
     ]
   },
   {
-    path: '/admin/article',
-    title: '文章管理',
-    key: 'article',
+    path: '/admin/pay',
+    title: '支付管理',
+    key: 'pay',
     icon: <FileTextOutlined />,
     children: [
       {
         path: '/list',
-        title: '文章列表',
-        key: 'articleList',
-        component: <Index />,
+        title: '支付列表',
+        key: 'payList',
+        component: <PayList />,
       }
     ]
   },
@@ -90,13 +91,13 @@ export const router: IRouter[] = [
         path: '/role',
         title: '角色列表',
         key: 'roleList',
-        component: <Index />,
+        component: <UserList />,
       },
       {
         path: '/power',
         title: '权限列表',
         key: 'powerList',
-        component: <Index />,
+        component: <UserList />,
       }
     ]
   }

@@ -6,6 +6,7 @@ module.exports = {
   webpack: {
     alias: {
       '@': path.resolve('src'),
+      '@comm': path.resolve('src/componments'),
       '@css': path.resolve('src/static/css'),
       '@img': path.resolve('src/static/img'),
     },

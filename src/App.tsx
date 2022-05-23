@@ -1,4 +1,4 @@
-import Layout from './componments/Layout';
+import Layout from './layouts/Layout';
 function App() {
   console.info(15)
   return (
