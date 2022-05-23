@@ -9,12 +9,12 @@ export default class App extends PureComponent {
     const myChart = eCharts.init(this.eChartsRef.current);
 
     let option = {
-      title: {
-        text: "ECharts 入门示例",
-      },
+      // title: {
+      //   text: "",
+      // },
       tooltip: {},
       legend: {
-        data: ["销量"],
+        data: [],
       },
       xAxis: {
         data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
@@ -35,8 +35,8 @@ export default class App extends PureComponent {
   render() {
     return <div ref={this.eChartsRef} style={{
       width: 600,
-      height: 400,
-      margin: 100
+      height: 250,
+      margin: 20
     }}></div>;
   }
 }

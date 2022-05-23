@@ -12,7 +12,7 @@ const Index = lazy(() =>  import('../pages/index'))
 const UserList = lazy(() => import('../pages/user'))
 const GoodsList = lazy(() => import('../pages/goods'))
 const SourceList = lazy(() => import('../pages/goodsource'))
-const PayList = lazy(() => import('../pages/pay'))
+const SaleList = lazy(() => import('../pages/sale'))
 const Page404 = lazy(() => import('../pages/page404'))
 
 export interface IRouter {
@@ -62,16 +62,16 @@ export const router: IRouter[] = [
     ]
   },
   {
-    path: '/admin/pay',
-    title: '支付管理',
-    key: 'pay',
+    path: '/admin/sale',
+    title: '销售管理',
+    key: 'sale',
     icon: <FileTextOutlined />,
     children: [
       {
         path: '/list',
-        title: '支付列表',
-        key: 'payList',
-        component: <PayList />,
+        title: '销售列表',
+        key: 'saleList',
+        component: <SaleList />,
       }
     ]
   },

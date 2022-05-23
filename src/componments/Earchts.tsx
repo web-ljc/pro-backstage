@@ -10,8 +10,7 @@ const Echarts = () => {
     const myChart = eCharts.init(eChartsRef.current as HTMLDivElement)
     let option = {
       title: {
-        text: 'Referer of a Website',
-        subtext: 'Fake Data',
+        text: '产品销售占比',
         left: 'center'
       },
       tooltip: {
@@ -23,15 +22,15 @@ const Echarts = () => {
       },
       series: [
         {
-          name: 'Access From',
+          name: '销售来源',
           type: 'pie',
           radius: '50%',
           data: [
-            { value: 1048, name: 'Search Engine' },
-            { value: 735, name: 'Direct' },
-            { value: 580, name: 'Email' },
-            { value: 484, name: 'Union Ads' },
-            { value: 300, name: 'Video Ads' }
+            { value: 1048, name: '视频广告' },
+            { value: 735, name: '搜索引擎' },
+            { value: 580, name: '联盟推广' },
+            { value: 484, name: '邮件营销' },
+            { value: 300, name: '直接访问' }
           ],
           emphasis: {
             itemStyle: {
@@ -49,8 +48,9 @@ const Echarts = () => {
 
 
   return (<div ref={eChartsRef} style={{
-    width: 600,
-    height: 200,
+    height: 300,
+    marginTop: 20,
+    marginLeft: 50
   }}>
     {/* <ReactEcharts option={getOption()} /> */}
     

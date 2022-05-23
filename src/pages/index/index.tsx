@@ -1,11 +1,19 @@
-import Echarts from "../../componments/Earchts"
+import { Card, Divider } from 'antd';
+import {Link} from 'react-router-dom'
 import MyCard from "./MyCard"
+import MyEarchts from './MyEarchts'
+import SaleList from "../sale"
 
 const Main = () => {
   return (
     <div>
       <MyCard />
-      <Echarts />
+      <MyEarchts />
+      <>
+        <h1>销售列表</h1>
+        <Divider />
+        <SaleList quotePos='index' />
+      </>
     </div>
   )
 }
