@@ -1,4 +1,5 @@
-import { Card, Divider } from 'antd';
+import { useState } from 'react';
+import { Card, Divider, Skeleton } from 'antd';
 import {Link} from 'react-router-dom'
 import MyCard from "./MyCard"
 import MyEarchts from './MyEarchts'

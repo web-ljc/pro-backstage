@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react"
-import { Table, Tag, Space } from "antd"
-import { getUserList, data } from "../../api/user"
+import { Table, Space, Button } from "antd"
+import Search from './Search'
+import { data } from "../../api/source"
 
-interface IUser {
+interface ISource {
   id: number
   name: string
-  age: number
+  address: string
   mobile?: string
-  email?: string
-  tags?: string[]
+  tel?: string
+}
+interface ISearch {
+  name: string
 }
 
 interface IColumns {
@@ -20,51 +23,40 @@ interface IColumns {
 }
 
 const columns:IColumns[] = [
-  {title: 'ID', dataIndex: 'id', key: 'id'},
-  {title: '名字', dataIndex: 'name', key: 'name'},
-  {title: '年龄', dataIndex: 'age', key: 'age'},
+  {title: '商家', dataIndex: 'name', key: 'name'},
+  {title: '地址', dataIndex: 'address', key: 'address'},
+  {title: '联系方式', dataIndex: 'tel', key: 'tel'},
   {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: (tags: string[]) => (
-      <span>
-        {tags ? tags.map(tag => {
-          let color = tag === '停用' ? 'volcano' : 'green';
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        }) : ''}
-      </span>
-    ),
-  },
-  {
-    title: 'Action',
+    title: '操作',
     key: 'action',
     width: 150,
     render: (_:object, record:any) => (
       <Space size="middle">
-        <a>编辑</a>
-        <a>删除</a>
+        <Button type="link" disabled>编辑</Button>
+        <Button type="link" disabled>删除</Button>
       </Space>
     ),
   },
 ]
 
 const App: React.FC = () => {
-  const [userList, setUserList] = useState<IUser[]>()
+  const [searchInfo, setSearchInfo] = useState<ISearch>({
+    name: ''
+  })
+  const [sourceList, setSourceList] = useState<ISource[]>()
 
+  // 获取数据
   const getUserListFn = (page: number = 1) => {
-    console.info(data)
-    setUserList(data)
-    // getUserList(page).then(res => {
-    //   const {data} = res.data.data
-    //   setUserList(data)
-    // }, err => {
-    //   setUserList([])
-    // })
+    setSourceList(data)
+  }
+
+  // 请求数据
+  const searchData = (values: ISearch) => {
+    console.info(values, 889)
+    setSearchInfo({
+      ...values
+    })
+    getUserListFn()
   }
 
   useEffect(() => {
@@ -73,13 +65,17 @@ const App: React.FC = () => {
 
   return(
     <>
+      <Search
+        data={searchInfo}
+        callback={searchData}
+      />
       <Table
-        dataSource={userList}
+        dataSource={sourceList}
         columns={columns}
         rowKey={'id'}
         size='middle'
         pagination={{
-          total: 14,
+          total: sourceList?.length,
           defaultCurrent: 1,
           defaultPageSize: 10
         }}

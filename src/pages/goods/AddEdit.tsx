@@ -14,6 +14,7 @@ interface IProps {
 const AddEdit = (props: IProps) => {
   const [title, setTitle] = useState<string>('创建')
   const [isVisible, setVisible] = useState<boolean>(false)
+  const [keyValues, setKeyValues] = useState<IData>()
   const [form] = Form.useForm()
   
   // 确定
@@ -29,14 +30,20 @@ const AddEdit = (props: IProps) => {
   }
   // 取消
   const handleCancel = () => {
+    form.resetFields() // 重置数据
     setVisible(false)
     props.callback(false)
   }
 
   useEffect(() => {
-    props.data ? setTitle('编辑') : setTitle('创建')
+    if(!props.data) {
+      setTitle('创建')
+      form.resetFields() // 重置数据
+    } else {
+      setTitle('编辑')
+      form.setFieldsValue(props.data)
+    }
     setVisible(props.visible)
-    form.resetFields() // 检验数据
   }, [props.visible])
 
   return (
@@ -51,10 +58,7 @@ const AddEdit = (props: IProps) => {
         form={form}
         labelCol={{ span: 6 }}
         wrapperCol={{ span: 16 }}
-        initialValues={{
-          title: props?.data?.title,
-          sku: props?.data?.sku
-        }}>
+        >
         <Form.Item
           label="商品名称"
           name="title"

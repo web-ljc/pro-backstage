@@ -19,7 +19,6 @@ import reportWebVitals from './reportWebVitals';
 // @ts-ignore
 function render(props) {
   const { container } = props;
-  console.info(props,container, 12)
   // ReactDOM.render(<App />, container ? container.querySelector('#root') : document.querySelector('#root'));
   const root = ReactDOM.createRoot(
     container ? container.querySelector('#root') as HTMLElement : document.getElementById('root') as HTMLElement
@@ -31,7 +30,6 @@ function render(props) {
       </ConfigProvider>
     </React.StrictMode>
   );
-  console.info(13)
 }
 
 // @ts-ignore

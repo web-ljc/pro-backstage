@@ -12,14 +12,13 @@ const App: React.FC<IProps> = (props: IProps) => {
   
   // 根据传参初始化查询条件
   useEffect(() => {
-    console.info(props.data, '初始化数据')
+    // console.info(props.data, '初始化数据')
   }, [])
   
   // 完成
   const onFinish = (values: any) => {
     props.callback(values)
   }
-
 
   return(
     <div className="con-search">

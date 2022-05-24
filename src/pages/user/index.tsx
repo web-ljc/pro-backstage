@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Table, Tag, Space } from "antd"
 import { getUserList, data } from "../../api/user"
+import Search from './Search'
 
 interface IUser {
   id: number
@@ -66,6 +67,11 @@ const App: React.FC = () => {
     //   setUserList([])
     // })
   }
+  
+  // 查询数据
+  const searchData = () => {
+    getUserListFn()
+  }
 
   useEffect(() => {
     getUserListFn()
@@ -73,6 +79,7 @@ const App: React.FC = () => {
 
   return(
     <>
+      <Search callback={searchData}/>
       <Table
         dataSource={userList}
         columns={columns}

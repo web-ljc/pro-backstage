@@ -20,14 +20,10 @@ const App: React.FC<IProps> = (props: IProps) => {
     props.callback(values)
   }
 
-
   return(
     <div className="con-search">
       <Form form={form} name="horizontal_login" layout="inline" onFinish={onFinish}>
-        <Form.Item label="商品名称" name="username">
-          <Input placeholder="请输入" />
-        </Form.Item>
-        <Form.Item label="SKU" name="password" >
+        <Form.Item label="商家名称" name="name">
           <Input placeholder="请输入" />
         </Form.Item>
         <Form.Item shouldUpdate>

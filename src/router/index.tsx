@@ -48,20 +48,6 @@ export const router: IRouter[] = [
     ]
   },
   {
-    path: '/admin/source',
-    title: '货源管理',
-    key: 'source',
-    icon: <ApartmentOutlined />,
-    children: [
-      {
-        path: '/list',
-        title: '货源中心',
-        key: 'sourceList',
-        component: <SourceList />,
-      }
-    ]
-  },
-  {
     path: '/admin/sale',
     title: '销售管理',
     key: 'sale',
@@ -72,6 +58,20 @@ export const router: IRouter[] = [
         title: '销售列表',
         key: 'saleList',
         component: <SaleList />,
+      }
+    ]
+  },
+  {
+    path: '/admin/source',
+    title: '货源管理',
+    key: 'source',
+    icon: <ApartmentOutlined />,
+    children: [
+      {
+        path: '/list',
+        title: '货源中心',
+        key: 'sourceList',
+        component: <SourceList />,
       }
     ]
   },
@@ -87,18 +87,18 @@ export const router: IRouter[] = [
         key: 'userList',
         component: <UserList />,
       },
-      {
-        path: '/role',
-        title: '角色列表',
-        key: 'roleList',
-        component: <UserList />,
-      },
-      {
-        path: '/power',
-        title: '权限列表',
-        key: 'powerList',
-        component: <UserList />,
-      }
+      // {
+      //   path: '/role',
+      //   title: '角色列表',
+      //   key: 'roleList',
+      //   component: <UserList />,
+      // },
+      // {
+      //   path: '/power',
+      //   title: '权限列表',
+      //   key: 'powerList',
+      //   component: <UserList />,
+      // }
     ]
   }
 ]

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Table, Tag, Space } from "antd"
+import { Table, Tag, Space, Button } from "antd"
 import { data } from "../../api/goods"
 import Search from '../../componments/Search'
 import AddEdit from './AddEdit'
@@ -21,8 +21,16 @@ interface IColumns {
   width?: number
   render?: any
 }
+interface ISearch {
+  title: string
+  sku: string
+}
 
 const App: React.FC = () => {
+  const [searchInfo, setSearchInfo] = useState<ISearch>({
+    title: '',
+    sku: ''
+  })
   const [goodsList, setGoodsList] = useState<IGoods[]>()
   const [showAddEditModal, setShowAddEditModal] = useState<boolean>(false)
   const [editObj, setEditObj] = useState<IGoods|null>(null)
@@ -72,10 +80,23 @@ const App: React.FC = () => {
     setGoodsList(data)
   }
 
+  // 请求数据
+  const searchData = (values: ISearch) => {
+    console.info(values, 889)
+    setSearchInfo({
+      ...values
+    })
+  }
+
   useEffect(() => {
     getUserListFn()
   }, [])
 
+  // 显示弹框
+  const handleAddModal = () => {
+    setEditObj(null)
+    setShowAddEditModal(true)
+  }
   // 显示弹框
   const handleEditModal = (record: IGoods) => {
     setEditObj(record)
@@ -97,12 +118,16 @@ const App: React.FC = () => {
 
   return(
     <>
-      <Search />
+      <Search
+        data={searchInfo}
+        callback={searchData}
+      />
       <AddEdit
         data={editObj}
         visible={showAddEditModal}
         callback={handleHideModal}
       />
+      <Button type="primary" className="mb-16" onClick={handleAddModal}>新增</Button>
       <Table
         dataSource={goodsList}
         columns={columns}

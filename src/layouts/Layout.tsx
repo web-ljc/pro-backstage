@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import TopHeader from './TopHeader'
 import View from './View';
 import LeftBar from './LeftBar';
-import Breadcrumb from './Breadcrumb'
+import Breadcrumb from './IBreadcrumb'
 const { Header, Content } = Layout;
 
 export default () => {

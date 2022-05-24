@@ -24,10 +24,10 @@ const App: React.FC<IProps> = (props: IProps) => {
   return(
     <div className="con-search">
       <Form form={form} name="horizontal_login" layout="inline" onFinish={onFinish}>
-        <Form.Item label="商品名称" name="username">
+        <Form.Item label="姓名" name="name">
           <Input placeholder="请输入" />
         </Form.Item>
-        <Form.Item label="SKU" name="password" >
+        <Form.Item label="年龄" name="age" >
           <Input placeholder="请输入" />
         </Form.Item>
         <Form.Item shouldUpdate>
