@@ -1,3 +1,4 @@
+import './public-path';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'antd/dist/antd.css';
@@ -17,10 +18,12 @@ import reportWebVitals from './reportWebVitals';
 // );
 
 // @ts-ignore
+let root
+// @ts-ignore
 function render(props) {
   const { container } = props;
   // ReactDOM.render(<App />, container ? container.querySelector('#root') : document.querySelector('#root'));
-  const root = ReactDOM.createRoot(
+  root = ReactDOM.createRoot(
     container ? container.querySelector('#root') as HTMLElement : document.getElementById('root') as HTMLElement
   );
   root.render(
@@ -50,7 +53,8 @@ export async function mount(props) {
 export async function unmount(props) {
   const { container } = props;
   // @ts-ignore
-  ReactDOM.unmountComponentAtNode(container ? container.querySelector('#root') : document.querySelector('#root'));
+  // ReactDOM.unmountComponentAtNode(container ? container.querySelector('#root') : document.querySelector('#root'));
+  root.unmount()
 }
 // @ts-ignore
 export async function update(props) {

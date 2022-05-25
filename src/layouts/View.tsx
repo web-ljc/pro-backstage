@@ -18,7 +18,7 @@ export default () => {
   return (
     <Suspense fallback={<></>}>
       <Switch>
-        <Route path={'/'} exact>
+        <Route path={['/', '/admin/']} exact>
           <Redirect to={'/admin/index'} />
         </Route>
         <Route path='/admin'>

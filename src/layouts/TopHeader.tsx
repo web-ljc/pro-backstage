@@ -10,7 +10,7 @@ export default () => {
     <>
       <Row>
         <Col span={16} className="header-title">
-          万云科技
+          万云科技管理系统
         </Col>
         <Col span={8}>
           <Menu

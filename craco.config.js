@@ -20,7 +20,7 @@ module.exports = {
         libraryTarget: 'umd',
         // jsonpFunction = `webpackJsonp_${name}`,
         globalObject: 'window',
-        // 打包的时候改成 /react/， 开发时候改成 /
+        // 打包的时候改成 /admin/， 开发时候改成 /
         publicPath: '/'
       }
       return webpackConfig;

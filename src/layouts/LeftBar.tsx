@@ -36,6 +36,8 @@ const LeftBar = (props:any) => {
   // 刷新菜单高亮显示
   const heightMenu = (leftRoutes: IRouter[], _path:string='') => {
     let path = props.location.pathname
+    path = path === '/' || path === '/admin'|| path === '/admin/' ? '/admin/index' : path
+    console.info(path, 90)
     for(let r of leftRoutes) {
       let match = matchPath(path, {path: _path+r.path})
       if(match) {

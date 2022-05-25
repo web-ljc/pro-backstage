@@ -104,13 +104,13 @@ export const router: IRouter[] = [
 ]
 export const unAuthRouter: IRouter[] = [
   {
-    path: '/login',
+    path: '/admin/login',
     title: '登录',
     key: 'login',
     component: <Login />,
   },
   {
-    path: '*',
+    path: '/admin/*',
     title: '404',
     key: '404',
     component: <Page404 />,

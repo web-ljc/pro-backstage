@@ -12,7 +12,7 @@ const onChange = (key: string) => {
 };
 
 const App: React.FC = () => (
-  <div className='index-echarts'>
+  <div className='index-echarts' style={{overflow: 'hidden'}}>
     <Row gutter={50}>
       <Col span={12}>
         <Tabs defaultActiveKey="1" onChange={onChange}>
