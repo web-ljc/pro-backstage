@@ -7,13 +7,13 @@ import {
   ShoppingCartOutlined
 } from '@ant-design/icons';
 
-const Login = lazy(() =>  import('../pages/login'))
-const Index = lazy(() =>  import('../pages/index'))
-const UserList = lazy(() => import('../pages/user'))
-const GoodsList = lazy(() => import('../pages/goods'))
-const SourceList = lazy(() => import('../pages/goodsource'))
-const SaleList = lazy(() => import('../pages/sale'))
-const Page404 = lazy(() => import('../pages/page404'))
+// const Login = lazy(() =>  import('../pages/login'))
+// const Index = lazy(() =>  import('../pages/index'))
+// const UserList = lazy(() => import('../pages/user'))
+// const GoodsList = lazy(() => import('../pages/goods'))
+// const SourceList = lazy(() => import('../pages/goodsource'))
+// const SaleList = lazy(() => import('../pages/sale'))
+// const Page404 = lazy(() => import('../pages/page404'))
 
 export interface IRouter {
   title: string
@@ -31,7 +31,7 @@ export const router: IRouter[] = [
     title: '首页',
     key: 'index',
     icon: <HomeOutlined />,
-    component: <Index />,
+    // component: <Index />,
   },
   {
     path: '/admin/goods',
@@ -43,7 +43,7 @@ export const router: IRouter[] = [
         path: '/list',
         title: '商品列表',
         key: 'goodsList',
-        component: <GoodsList />,
+        // component: <GoodsList />,
       }
     ]
   },
@@ -57,7 +57,7 @@ export const router: IRouter[] = [
         path: '/list',
         title: '销售列表',
         key: 'saleList',
-        component: <SaleList />,
+        // component: <SaleList />,
       }
     ]
   },
@@ -71,7 +71,7 @@ export const router: IRouter[] = [
         path: '/list',
         title: '货源中心',
         key: 'sourceList',
-        component: <SourceList />,
+        // component: <SourceList />,
       }
     ]
   },
@@ -85,7 +85,7 @@ export const router: IRouter[] = [
         path: '/user',
         title: '用户列表',
         key: 'userList',
-        component: <UserList />,
+        // component: <UserList />,
       },
       // {
       //   path: '/role',
@@ -107,13 +107,13 @@ export const unAuthRouter: IRouter[] = [
     path: '/admin/login',
     title: '登录',
     key: 'login',
-    component: <Login />,
+    // component: <Login />,
   },
   {
-    path: '/admin/*',
+    path: '/admin/404',
     title: '404',
     key: '404',
-    component: <Page404 />,
+    // component: <Page404 />,
   }
 ]
 
